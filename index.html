@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Okegbemi Saheed — Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B1220;
+    --surface: #121A2B;
+    --surface-2: #172238;
+    --line: #232E45;
+    --text: #E7EBF3;
+    --muted: #8B96AD;
+    --muted-2: #5C6785;
+    --amber: #F2B84B;
+    --blue: #4DA3FF;
+    --green: #34C795;
+    --purple: #9B7CF0;
+    --orange: #F0925C;
+    --red: #E5635F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Manrope',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* background grid texture */
+  .grid-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity:0.35;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter: blur(10px);
+    background:rgba(11,18,32,0.75);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:1140px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px; font-weight:700; font-size:16px; letter-spacing:0.2px;}
+  .logo-mark{
+    width:26px; height:26px; border-radius:6px;
+    background:var(--surface-2); border:1px solid var(--line);
+    display:flex; align-items:end; gap:2px; padding:4px;
+  }
+  .logo-mark span{width:4px; background:var(--blue); border-radius:1px;}
+  .logo-mark span:nth-child(1){height:5px; background:var(--blue);}
+  .logo-mark span:nth-child(2){height:9px; background:var(--green);}
+  .logo-mark span:nth-child(3){height:13px; background:var(--amber);}
+  .navlinks{display:flex; gap:32px; align-items:center;}
+  .navlinks a{color:var(--muted); font-size:14px; font-weight:600; transition:color .2s;}
+  .navlinks a:hover{color:var(--text);}
+  .btn-resume{
+    background:var(--amber); color:#1A1200; padding:9px 18px; border-radius:8px;
+    font-size:13px; font-weight:700; font-family:'IBM Plex Mono',monospace;
+  }
+  .btn-resume:hover{background:#ffcb63;}
+
+  @media (max-width:760px){
+    .navlinks{display:none;}
+  }
+
+  /* HERO */
+  .hero{padding:110px 0 90px; position:relative;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--green);
+    background:rgba(52,199,149,0.08); border:1px solid rgba(52,199,149,0.25);
+    padding:6px 12px; border-radius:100px; margin-bottom:28px;
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green);}
+
+  .formula-bar{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--muted-2);
+    border:1px solid var(--line); border-radius:8px 8px 0 0;
+    padding:8px 14px; background:var(--surface); display:flex; gap:10px; align-items:center;
+    max-width:640px;
+  }
+  .formula-bar .fx{color:var(--muted-2); font-weight:600;}
+  .formula-bar .val{color:var(--amber);}
+
+  .hero h1{
+    font-size:56px; font-weight:800; letter-spacing:-1.5px; line-height:1.08;
+    max-width:760px; margin:22px 0 20px;
+    border:1px solid var(--line); border-top:none; border-radius:0 0 8px 8px;
+    padding:26px 14px 30px; background:var(--surface);
+  }
+  .hero h1 .accent{color:var(--amber);}
+  .hero p.lede{
+    font-size:18px; color:var(--muted); max-width:560px; margin-bottom:36px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--blue); color:#04101F; font-weight:700; font-size:14.5px;
+    padding:13px 24px; border-radius:8px; transition:transform .15s, background .15s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary:hover{background:#6cb6ff; transform:translateY(-1px);}
+  .btn-outline{
+    border:1px solid var(--line); color:var(--text); font-weight:600; font-size:14.5px;
+    padding:12px 24px; border-radius:8px; transition:border-color .15s, transform .15s;
+  }
+  .btn-outline:hover{border-color:var(--muted-2); transform:translateY(-1px);}
+
+  .hero-stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    margin-top:70px; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+    background:var(--line);
+  }
+  .stat{background:var(--surface); padding:22px 20px;}
+  .stat .n{font-family:'IBM Plex Mono',monospace; font-size:26px; font-weight:700; color:var(--text);}
+  .stat .l{font-size:12.5px; color:var(--muted); margin-top:4px;}
+  @media (max-width:760px){
+    .hero h1{font-size:36px;}
+    .hero-stats{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* SECTION HEADERS */
+  .section{padding:90px 0;}
+  .section-head{margin-bottom:48px;}
+  .section-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--muted-2);
+    letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .section-head h2{font-size:32px; font-weight:800; letter-spacing:-0.5px;}
+  .section-head p{color:var(--muted); margin-top:10px; max-width:560px; font-size:15.5px;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:start;}
+  .about-text p{color:var(--muted); font-size:15.5px; margin-bottom:16px; max-width:520px;}
+  .about-text strong{color:var(--text);}
+  .skills-box{border:1px solid var(--line); border-radius:12px; padding:24px; background:var(--surface);}
+  .skills-box h4{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px;}
+  .skill-row{margin-bottom:16px;}
+  .skill-row:last-child{margin-bottom:0;}
+  .skill-row .top{display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:6px;}
+  .skill-row .top span:first-child{font-weight:600;}
+  .skill-row .top span:last-child{color:var(--muted-2); font-family:'IBM Plex Mono',monospace;}
+  .bar{height:6px; border-radius:3px; background:var(--line); overflow:hidden;}
+  .bar i{display:block; height:100%; border-radius:3px;}
+
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* PROJECTS */
+  .project-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:900px){ .project-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .project-grid{grid-template-columns:1fr;} }
+
+  .card{
+    border:1px solid var(--line); border-radius:12px; background:var(--surface);
+    padding:22px; display:flex; flex-direction:column; gap:14px; transition:border-color .2s, transform .2s;
+    position:relative; overflow:hidden;
+  }
+  .card:hover{border-color:var(--muted-2); transform:translateY(-3px);}
+  .card.featured{
+    border-color:rgba(242,184,75,0.4);
+    background:linear-gradient(180deg, rgba(242,184,75,0.06), var(--surface) 60%);
+  }
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start;}
+  .card-num{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted-2);}
+  .status{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; padding:4px 9px; border-radius:100px;
+    text-transform:uppercase; letter-spacing:0.5px; font-weight:600;
+  }
+  .status.done{background:rgba(52,199,149,0.12); color:var(--green); border:1px solid rgba(52,199,149,0.3);}
+  .status.pending{background:rgba(139,150,173,0.1); color:var(--muted); border:1px solid var(--line);}
+
+  .card h3{font-size:17px; font-weight:700; letter-spacing:-0.2px;}
+  .card p.desc{font-size:13.5px; color:var(--muted); flex-grow:1;}
+
+  .tag-row{display:flex; gap:6px; flex-wrap:wrap;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; padding:3px 8px; border-radius:5px;
+    background:var(--surface-2); color:var(--muted); border:1px solid var(--line);
+  }
+  .tag.domain{color:var(--blue); border-color:rgba(77,163,255,0.25);}
+
+  .card-links{display:flex; gap:14px; margin-top:4px;}
+  .card-links a{font-size:12.5px; font-weight:600; color:var(--amber); display:flex; align-items:center; gap:4px;}
+  .card-links a:hover{color:#ffcb63;}
+
+  .dot-row{position:absolute; top:0; left:0; right:0; height:3px; display:flex;}
+  .dot-row i{flex:1;}
+
+  /* FOOTER / CONTACT */
+  .contact-box{
+    border:1px solid var(--line); border-radius:16px; padding:56px 40px; text-align:center;
+    background:radial-gradient(ellipse 60% 100% at 50% 0%, rgba(77,163,255,0.08), transparent), var(--surface);
+  }
+  .contact-box h2{font-size:30px; font-weight:800; margin-bottom:14px;}
+  .contact-box p{color:var(--muted); margin-bottom:30px;}
+  .contact-links{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  footer{border-top:1px solid var(--line); padding:32px 0; margin-top:40px;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  .footer-row p{font-size:13px; color:var(--muted-2); font-family:'IBM Plex Mono',monospace;}
+  .footer-links{display:flex; gap:20px;}
+  .footer-links a{font-size:13px; color:var(--muted); font-weight:600;}
+  .footer-links a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<header>
+  <nav>
+    <div class="logo">
+      <div class="logo-mark"><span></span><span></span><span></span></div>
+      Okegbemi Saheed
+    </div>
+    <div class="navlinks">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="./resume.pdf" class="btn-resume" download>Resume ↓</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Open to entry-level Data Analyst roles</div>
+
+    <div class="formula-bar">
+      <span class="fx">fx</span>
+      <span>=CONCAT(<span class="val">"Excel"</span>,<span class="val">"SQL"</span>,<span class="val">"Power BI"</span>)</span>
+    </div>
+    <h1>Turning raw retail data into <span class="accent">decisions worth making.</span></h1>
+
+    <p class="lede">I'm a Data Analyst focused on sales, inventory, supply chain, and retail — building dashboards and analysis that surface the insight hiding behind the revenue number.</p>
+
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="mailto:saheedokegbemi3@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><div class="n">01<span style="color:var(--muted-2)">/12</span></div><div class="l">Projects completed</div></div>
+      <div class="stat"><div class="n">10,195</div><div class="l">Rows analyzed</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Core tools</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">Industry focus areas</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-tag">// About</span>
+        <h2 style="font-size:28px; font-weight:800; margin-bottom:20px;">Background</h2>
+        <p>I bring an analytical mindset shaped by a background in <strong>Education and Mathematics</strong> from the University of Ibadan — a foundation that sharpened my ability to break down complex information and turn it into clear, actionable insight.</p>
+        <p>I work with <strong>Excel, SQL, and Power BI</strong> to explore how data drives smarter decisions in sales, inventory, and supply chain operations. I'm continuously building on these skills through self-study and certification, with a clear focus on data analysis as my career path.</p>
+        <p>Currently building a 12-project portfolio spanning sales, inventory, supply chain, and retail — each one documented end-to-end, from raw data to dashboard to written findings.</p>
+      </div>
+
+      <div class="skills-box" id="skills">
+        <h4>Tool Proficiency</h4>
+        <div class="skill-row">
+          <div class="top"><span>Excel</span><span>Advanced</span></div>
+          <div class="bar"><i style="width:88%; background:var(--green);"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>SQL</span><span>Intermediate</span></div>
+          <div class="bar"><i style="width:65%; background:var(--blue);"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Power BI</span><span>Intermediate</span></div>
+          <div class="bar"><i style="width:60%; background:var(--amber);"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Data Cleaning &amp; Prep</span><span>Advanced</span></div>
+          <div class="bar"><i style="width:85%; background:var(--purple);"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Dashboard Design</span><span>Advanced</span></div>
+          <div class="bar"><i style="width:82%; background:var(--orange);"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">// Portfolio</span>
+      <h2>12 Projects — Sales, Inventory, Supply Chain &amp; Retail</h2>
+      <p>Each project pairs a business domain with one core analytics tool. One flagship project is live; the rest are in progress.</p>
+    </div>
+
+    <div class="project-grid" id="project-grid"></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Let's talk data.</h2>
+      <p>Open to entry-level Data Analyst roles, and always happy to connect with fellow analysts.</p>
+      <div class="contact-links">
+        <a href="mailto:saheedokegbemi3@gmail.com" class="btn-primary">Email Me</a>
+        <a href="https://www.linkedin.com/in/okegbemi-saheed/" target="_blank" class="btn-outline">LinkedIn</a>
+        <a href="https://github.com/yemtech96" target="_blank" class="btn-outline">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© 2026 Okegbemi Saheed — Built with Excel, SQL, Power BI &amp; curiosity.</p>
+    <div class="footer-links">
+      <a href="https://github.com/yemtech96" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/okegbemi-saheed/" target="_blank">LinkedIn</a>
+      <a href="mailto:saheedokegbemi3@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const projects = [
+    {
+      num: "01", domain: "Sales", tool: "Excel", title: "Superstore Sales & Profitability",
+      desc: "10,195 orders analyzed — found that revenue above a 20% discount consistently erased profit, across customers, categories, and regions.",
+      status: "done",
+      links: [
+        { label: "GitHub →", href: "https://github.com/yemtech96/project1-superstore-sales-dashboard" },
+        { label: "Article →", href: "#" }
+      ],
+      colors: ["var(--blue)","var(--green)","var(--amber)"]
+    },
+    { num:"02", domain:"Sales", tool:"SQL", title:"Sales Trend & Customer Analysis", desc:"Querying sales trends, top customers, and category performance using joins, CTEs, and window functions.", status:"pending" },
+    { num:"03", domain:"Sales", tool:"Power BI", title:"Interactive Sales Dashboard", desc:"A drill-down dashboard with regional filters, YoY growth, and DAX-driven KPIs.", status:"pending" },
+    { num:"04", domain:"Inventory", tool:"Excel", title:"Stock Level & Reorder Tracker", desc:"A formula-driven tracker flagging low stock and calculating reorder points automatically.", status:"pending" },
+    { num:"05", domain:"Inventory", tool:"SQL", title:"Stockout & Movement Analysis", desc:"Identifying stockout frequency, slow-moving items, and inventory turnover ratios.", status:"pending" },
+    { num:"06", domain:"Inventory", tool:"Power BI", title:"Inventory Health Dashboard", desc:"Visualizing turnover, days-on-hand, and dead stock by category.", status:"pending" },
+    { num:"07", domain:"Supply Chain", tool:"Excel", title:"Supplier Performance Scorecard", desc:"Weighted scoring of suppliers on delivery time, defect rate, and cost variance.", status:"pending" },
+    { num:"08", domain:"Supply Chain", tool:"SQL", title:"Lead Time & Fulfillment Analysis", desc:"Analyzing average lead time by supplier and region, flagging delayed orders.", status:"pending" },
+    { num:"09", domain:"Supply Chain", tool:"Power BI", title:"End-to-End Supply Chain Dashboard", desc:"Order-to-delivery visibility with delay hotspots mapped geographically.", status:"pending" },
+    { num:"10", domain:"Retail", tool:"Excel+SQL+Power BI", title:"Full Retail Performance Report", desc:"Capstone project combining all three tools into one end-to-end retail analysis.", status:"pending" },
+    { num:"11", domain:"Retail", tool:"Power BI", title:"Store & Regional Comparison", desc:"Benchmarking store and regional performance on revenue and inventory efficiency.", status:"pending" },
+    { num:"12", domain:"Retail", tool:"SQL+Excel", title:"Customer Segmentation (RFM)", desc:"Segmenting customers by Recency, Frequency, and Monetary value to identify buying behavior.", status:"pending" },
+  ];
+
+  const grid = document.getElementById("project-grid");
+  projects.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card" + (p.status === "done" ? " featured" : "");
+    const dots = (p.colors || ["var(--muted-2)"]).map(c => `<i style="background:${c}"></i>`).join("");
+    card.innerHTML = `
+      <div class="dot-row">${dots}</div>
+      <div class="card-top">
+        <span class="card-num">PROJECT ${p.num}</span>
+        <span class="status ${p.status}">${p.status === "done" ? "Live" : "In Progress"}</span>
+      </div>
+      <h3>${p.title}</h3>
+      <p class="desc">${p.desc}</p>
+      <div class="tag-row">
+        <span class="tag domain">${p.domain}</span>
+        <span class="tag">${p.tool}</span>
+      </div>
+      ${p.links ? `<div class="card-links">${p.links.map(l => `<a href="${l.href}" target="_blank">${l.label}</a>`).join("")}</div>` : ""}
+    `;
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
