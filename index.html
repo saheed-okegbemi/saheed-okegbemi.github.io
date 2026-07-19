@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Okegbemi Saheed — Data Analyst Portfolio</title>
+<link rel="icon" type="image/png" href="./profile.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -289,7 +290,6 @@
       </div>
 
       <div class="photo-frame">
-        <div class="photo-tag mono">// analyst.jpg</div>
         <img src="./profile.png" alt="Okegbemi Saheed" onerror="this.parentElement.classList.add('no-photo')">
         <div class="photo-fallback">Add<br><span>profile.png</span></div>
       </div>
@@ -346,8 +346,8 @@
   <div class="wrap">
     <div class="section-head">
       <span class="section-tag">// Portfolio</span>
-      <h2>12 Projects — Sales, Inventory, Supply Chain &amp; Retail</h2>
-      <p>Each project pairs a business domain with one core analytics tool. One flagship project is live; the rest are in progress.</p>
+      <h2>Featured Project</h2>
+      <p>Part of a 12-project portfolio spanning sales, inventory, supply chain, and retail. More projects will appear here as they're completed.</p>
     </div>
 
     <div class="project-grid" id="project-grid"></div>
@@ -405,7 +405,7 @@
   ];
 
   const grid = document.getElementById("project-grid");
-  projects.forEach(p => {
+  projects.filter(p => p.status === "done").forEach(p => {
     const card = document.createElement("div");
     card.className = "card" + (p.status === "done" ? " featured" : "");
     const dots = (p.colors || ["var(--muted-2)"]).map(c => `<i style="background:${c}"></i>`).join("");
