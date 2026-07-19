@@ -128,9 +128,40 @@
   .stat{background:var(--surface); padding:22px 20px;}
   .stat .n{font-family:'IBM Plex Mono',monospace; font-size:26px; font-weight:700; color:var(--text);}
   .stat .l{font-size:12.5px; color:var(--muted); margin-top:4px;}
+
+  .hero-grid{display:grid; grid-template-columns:1.4fr 0.9fr; gap:48px; align-items:start;}
+  .hero-main .hero-ctas{margin-bottom:0;}
+
+  .photo-frame{
+    position:relative; border:1px solid var(--line); border-radius:14px;
+    background:var(--surface); padding:14px; margin-top:8px;
+  }
+  .photo-tag{
+    font-size:11px; color:var(--muted-2); margin-bottom:10px; letter-spacing:0.5px;
+  }
+  .photo-frame img{
+    width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px;
+    display:block; border:1px solid var(--line);
+    filter:grayscale(15%) contrast(1.03);
+  }
+  .photo-frame::after{
+    content:""; position:absolute; top:-1px; right:-1px; width:34px; height:34px;
+    border-top:2px solid var(--amber); border-right:2px solid var(--amber); border-radius:0 14px 0 0;
+  }
+  .photo-fallback{display:none;}
+  .photo-frame.no-photo img{display:none;}
+  .photo-frame.no-photo .photo-fallback{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    aspect-ratio:1/1; border-radius:8px; border:1px dashed var(--line);
+    color:var(--muted-2); font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:center; line-height:1.6;
+  }
+  .photo-fallback span{color:var(--amber); margin-top:4px;}
+
   @media (max-width:760px){
     .hero h1{font-size:36px;}
     .hero-stats{grid-template-columns:repeat(2,1fr);}
+    .hero-grid{grid-template-columns:1fr;}
+    .photo-frame{max-width:260px;}
   }
 
   /* SECTION HEADERS */
@@ -239,19 +270,29 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span>Open to entry-level Data Analyst roles</div>
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div class="eyebrow"><span class="dot"></span>Open to entry-level Data Analyst roles</div>
 
-    <div class="formula-bar">
-      <span class="fx">fx</span>
-      <span>=CONCAT(<span class="val">"Excel"</span>,<span class="val">"SQL"</span>,<span class="val">"Power BI"</span>)</span>
-    </div>
-    <h1>Turning raw retail data into <span class="accent">decisions worth making.</span></h1>
+        <div class="formula-bar">
+          <span class="fx">fx</span>
+          <span>=CONCAT(<span class="val">"Excel"</span>,<span class="val">"SQL"</span>,<span class="val">"Power BI"</span>)</span>
+        </div>
+        <h1>Turning raw retail data into <span class="accent">decisions worth making.</span></h1>
 
-    <p class="lede">I'm a Data Analyst focused on sales, inventory, supply chain, and retail — building dashboards and analysis that surface the insight hiding behind the revenue number.</p>
+        <p class="lede">I'm a Data Analyst focused on sales, inventory, supply chain, and retail — building dashboards and analysis that surface the insight hiding behind the revenue number.</p>
 
-    <div class="hero-ctas">
-      <a href="#projects" class="btn-primary">View Projects →</a>
-      <a href="mailto:saheedokegbemi3@gmail.com" class="btn-outline">Get in Touch</a>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">View Projects →</a>
+          <a href="mailto:saheedokegbemi3@gmail.com" class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="photo-frame">
+        <div class="photo-tag mono">// analyst.jpg</div>
+        <img src="./profile.png" alt="Okegbemi Saheed" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-fallback">Add<br><span>profile.png</span></div>
+      </div>
     </div>
 
     <div class="hero-stats">
