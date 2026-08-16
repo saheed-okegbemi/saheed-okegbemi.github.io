@@ -296,10 +296,10 @@
     </div>
 
     <div class="hero-stats">
-      <div class="stat"><div class="n">2</div><div class="l">Projects completed</div></div>
-      <div class="stat"><div class="n">14,095</div><div class="l">Rows analyzed</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Projects completed</div></div>
+      <div class="stat"><div class="n">29,595</div><div class="l">Rows analyzed</div></div>
       <div class="stat"><div class="n">4</div><div class="l">Core tools</div></div>
-      <div class="stat"><div class="n">16</div><div class="l">Key insights found</div></div>
+      <div class="stat"><div class="n">25</div><div class="l">Key insights found</div></div>
     </div>
   </div>
 </section>
@@ -404,17 +404,28 @@
       ],
       colors: ["var(--purple)","var(--orange)","var(--blue)"]
     },
-    { num:"03", domain:"Sales", tool:"SQL", title:"Sales Trend & Customer Analysis", desc:"Querying sales trends, top customers, and category performance using joins, CTEs, and window functions.", status:"pending" },
-    { num:"04", domain:"Sales", tool:"Power BI", title:"Interactive Sales Dashboard", desc:"A drill-down dashboard with regional filters, YoY growth, and DAX-driven KPIs.", status:"pending" },
-    { num:"05", domain:"Inventory", tool:"Excel", title:"Stock Level & Reorder Tracker", desc:"A formula-driven tracker flagging low stock and calculating reorder points automatically.", status:"pending" },
-    { num:"06", domain:"Inventory", tool:"SQL", title:"Stockout & Movement Analysis", desc:"Identifying stockout frequency, slow-moving items, and inventory turnover ratios.", status:"pending" },
-    { num:"07", domain:"Inventory", tool:"Power BI", title:"Inventory Health Dashboard", desc:"Visualizing turnover, days-on-hand, and dead stock by category.", status:"pending" },
-    { num:"08", domain:"Supply Chain", tool:"Excel", title:"Supplier Performance Scorecard", desc:"Weighted scoring of suppliers on delivery time, defect rate, and cost variance.", status:"pending" },
-    { num:"09", domain:"Supply Chain", tool:"SQL", title:"Lead Time & Fulfillment Analysis", desc:"Analyzing average lead time by supplier and region, flagging delayed orders.", status:"pending" },
-    { num:"10", domain:"Supply Chain", tool:"Power BI", title:"End-to-End Supply Chain Dashboard", desc:"Order-to-delivery visibility with delay hotspots mapped geographically.", status:"pending" },
-    { num:"11", domain:"Retail", tool:"Excel+SQL+Power BI", title:"Full Retail Performance Report", desc:"Capstone project combining all three tools into one end-to-end retail analysis.", status:"pending" },
-    { num:"12", domain:"Retail", tool:"Power BI", title:"Store & Regional Comparison", desc:"Benchmarking store and regional performance on revenue and inventory efficiency.", status:"pending" },
-    { num:"13", domain:"Retail", tool:"SQL+Excel", title:"Customer Segmentation (RFM)", desc:"Segmenting customers by Recency, Frequency, and Monetary value to identify buying behavior.", status:"pending" },
+    {
+      num: "03", domain: "E-commerce", tool: "Power BI", title: "NaijaCart E-Commerce Performance Analysis",
+      desc: "15,500 orders modeled across an 11-table relational structure in Power BI, powering a three-page dashboard on sales, customers, and delivery. Found that combined cancellations and returns made up nearly a third of all orders, and that full-price sales consistently outperformed discounted ones.",
+      status: "done",
+      links: [
+        { label: "GitHub →", href: "https://github.com/saheed-okegbemi/NaijaCart-E-Commerce_Business_Analysis" },
+        { label: "Article →", href: "https://medium.com/@yemtech96/building-naijacart-a-power-bi-analysis-of-a-nigerian-e-commerce-business-020e2b88e1dc" },
+        { label: "Dashboard →", href: "https://app.powerbi.com/reportEmbed?reportId=264febf2-75fc-4f2f-8ebe-4e56fce690f0&autoAuth=true&ctid=fccf42df-16d9-4e87-a6e0-e49622017f74" }
+      ],
+      colors: ["var(--amber)","var(--green)","var(--purple)"]
+    },
+    { num:"04", domain:"Sales", tool:"SQL", title:"Sales Trend & Customer Analysis", desc:"Querying sales trends, top customers, and category performance using joins, CTEs, and window functions.", status:"pending" },
+    { num:"05", domain:"Sales", tool:"Power BI", title:"Interactive Sales Dashboard", desc:"A drill-down dashboard with regional filters, YoY growth, and DAX-driven KPIs.", status:"pending" },
+    { num:"06", domain:"Inventory", tool:"Excel", title:"Stock Level & Reorder Tracker", desc:"A formula-driven tracker flagging low stock and calculating reorder points automatically.", status:"pending" },
+    { num:"07", domain:"Inventory", tool:"SQL", title:"Stockout & Movement Analysis", desc:"Identifying stockout frequency, slow-moving items, and inventory turnover ratios.", status:"pending" },
+    { num:"08", domain:"Inventory", tool:"Power BI", title:"Inventory Health Dashboard", desc:"Visualizing turnover, days-on-hand, and dead stock by category.", status:"pending" },
+    { num:"09", domain:"Supply Chain", tool:"Excel", title:"Supplier Performance Scorecard", desc:"Weighted scoring of suppliers on delivery time, defect rate, and cost variance.", status:"pending" },
+    { num:"10", domain:"Supply Chain", tool:"SQL", title:"Lead Time & Fulfillment Analysis", desc:"Analyzing average lead time by supplier and region, flagging delayed orders.", status:"pending" },
+    { num:"11", domain:"Supply Chain", tool:"Power BI", title:"End-to-End Supply Chain Dashboard", desc:"Order-to-delivery visibility with delay hotspots mapped geographically.", status:"pending" },
+    { num:"12", domain:"Retail", tool:"Excel+SQL+Power BI", title:"Full Retail Performance Report", desc:"Capstone project combining all three tools into one end-to-end retail analysis.", status:"pending" },
+    { num:"13", domain:"Retail", tool:"Power BI", title:"Store & Regional Comparison", desc:"Benchmarking store and regional performance on revenue and inventory efficiency.", status:"pending" },
+    { num:"14", domain:"Retail", tool:"SQL+Excel", title:"Customer Segmentation (RFM)", desc:"Segmenting customers by Recency, Frequency, and Monetary value to identify buying behavior.", status:"pending" },
   ];
 
   const grid = document.getElementById("project-grid");
