@@ -28,17 +28,6 @@ const PROJECTS = [
       { label: "Open dashboard", href: "https://app.powerbi.com/reportEmbed?reportId=264febf2-75fc-4f2f-8ebe-4e56fce690f0&autoAuth=true&ctid=fccf42df-16d9-4e87-a6e0-e49622017f74" }
     ]
   },
-  { num:"04", domain:"Sales", tool:"SQL", title:"Sales Trend & Customer Analysis", desc:"Querying sales trends, top customers, and category performance using joins, CTEs, and window functions.", status:"pending" },
-  { num:"05", domain:"Sales", tool:"Power BI", title:"Interactive Sales Dashboard", desc:"A drill-down dashboard with regional filters, YoY growth, and DAX-driven KPIs.", status:"pending" },
-  { num:"06", domain:"Inventory", tool:"Excel", title:"Stock Level & Reorder Tracker", desc:"A formula-driven tracker flagging low stock and calculating reorder points automatically.", status:"pending" },
-  { num:"07", domain:"Inventory", tool:"SQL", title:"Stockout & Movement Analysis", desc:"Identifying stockout frequency, slow-moving items, and inventory turnover ratios.", status:"pending" },
-  { num:"08", domain:"Inventory", tool:"Power BI", title:"Inventory Health Dashboard", desc:"Visualizing turnover, days-on-hand, and dead stock by category.", status:"pending" },
-  { num:"09", domain:"Supply Chain", tool:"Excel", title:"Supplier Performance Scorecard", desc:"Weighted scoring of suppliers on delivery time, defect rate, and cost variance.", status:"pending" },
-  { num:"10", domain:"Supply Chain", tool:"SQL", title:"Lead Time & Fulfillment Analysis", desc:"Analyzing average lead time by supplier and region, flagging delayed orders.", status:"pending" },
-  { num:"11", domain:"Supply Chain", tool:"Power BI", title:"End-to-End Supply Chain Dashboard", desc:"Order-to-delivery visibility with delay hotspots mapped geographically.", status:"pending" },
-  { num:"12", domain:"Retail", tool:"Excel+SQL+Power BI", title:"Full Retail Performance Report", desc:"Capstone project combining all three tools into one end-to-end retail analysis.", status:"pending" },
-  { num:"13", domain:"Retail", tool:"Power BI", title:"Store & Regional Comparison", desc:"Benchmarking store and regional performance on revenue and inventory efficiency.", status:"pending" },
-  { num:"14", domain:"Retail", tool:"SQL+Excel", title:"Customer Segmentation (RFM)", desc:"Segmenting customers by Recency, Frequency, and Monetary value to identify buying behavior.", status:"pending" },
 ];
 
 function renderProjectCard(p) {

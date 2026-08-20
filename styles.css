@@ -60,10 +60,10 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .btn-primary:hover{background:var(--blue-dark);}
 .btn-outline{
   display:inline-flex; align-items:center; gap:6px;
-  background:transparent; color:var(--text); border:1.5px solid var(--line); padding:12px 22px; border-radius:6px;
+  background:transparent; color:var(--blue); border:1.5px solid var(--blue-line); padding:12px 22px; border-radius:6px;
   font-size:14px; font-weight:700;
 }
-.btn-outline:hover{border-color:var(--muted-2);}
+.btn-outline:hover{border-color:var(--blue); background:var(--blue-light);}
 
 /* HERO */
 .hero{padding:90px 0 70px;}
@@ -135,7 +135,7 @@ h1 .accent{color:var(--blue);}
   padding:24px; display:flex; flex-direction:column; gap:14px; transition:box-shadow .2s, transform .2s;
 }
 .card:hover{transform:translateY(-3px); box-shadow:0 6px 20px rgba(23,92,211,0.08);}
-.card.featured{border-color:var(--blue-line); background:linear-gradient(180deg, var(--blue-light) 0%, var(--surface) 55%);}
+.card.featured{border-color:var(--blue-line); background:var(--surface); box-shadow:0 0 0 1px var(--blue-line), 0 12px 32px rgba(23,92,211,0.10);}
 .card-top{display:flex; justify-content:space-between; align-items:flex-start;}
 .card-num{font-size:12px; font-weight:700; color:var(--muted-2);}
 .status{
@@ -161,13 +161,13 @@ h1 .accent{color:var(--blue);}
 }
 .card-links a.link-primary{background:var(--blue); color:#fff;}
 .card-links a.link-primary:hover{background:var(--blue-dark);}
-.card-links a.link-secondary{background:var(--surface-2); color:var(--text);}
-.card-links a.link-secondary:hover{background:var(--line);}
+.card-links a.link-secondary{background:var(--blue-light); color:var(--blue);}
+.card-links a.link-secondary:hover{background:var(--blue-line);}
 
 /* CONTACT */
 .contact-box{
-  border:1px solid var(--line); border-radius:16px; padding:56px 40px; text-align:center;
-  background:linear-gradient(180deg, var(--blue-light) 0%, var(--surface) 65%);
+  border:1px solid var(--blue-line); border-radius:16px; padding:56px 40px; text-align:center;
+  background:var(--surface); box-shadow:0 0 0 1px var(--blue-line), 0 16px 40px rgba(23,92,211,0.10);
 }
 .contact-box h2{font-family:'Source Serif 4', Georgia, serif; font-size:30px; font-weight:600; margin-bottom:14px;}
 .contact-box p{color:var(--muted); margin-bottom:30px;}
