@@ -25,7 +25,7 @@ const PROJECTS = [
     links: [
       { label: "View on GitHub", href: "https://github.com/saheed-okegbemi/NaijaCart-E-Commerce_Business_Analysis", primary: true },
       { label: "Read article", href: "https://medium.com/@yemtech96/building-naijacart-a-power-bi-analysis-of-a-nigerian-e-commerce-business-020e2b88e1dc" },
-      { label: "Open dashboard", href: "https://app.powerbi.com/reportEmbed?reportId=264febf2-75fc-4f2f-8ebe-4e56fce690f0&autoAuth=true&ctid=fccf42df-16d9-4e87-a6e0-e49622017f74" }
+      { label: "Open dashboard", href: "https://app.powerbi.com/view?r=eyJrIjoiZTJlMzEwYzktYmExMy00YTI1LWI5ZjYtM2NiZjg2NGQ4YTMzIiwidCI6ImZjY2Y0MmRmLTE2ZDktNGU4Ny1hNmUwLWU0OTYyMjAxN2Y3NCJ9" }
     ]
   },
 ];
