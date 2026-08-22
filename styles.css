@@ -205,11 +205,11 @@ footer{border-top:1px solid var(--line); padding:32px 0; margin-top:20px;}
   overflow:hidden; padding:4px 0 8px; position:relative;
 }
 .dash-track{
-  display:flex; width:max-content;
+  display:flex;
   transform:translateX(0);
 }
 .dash-card{
-  flex:0 0 auto; width:100%;
+  flex:0 0 auto;
   border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--surface);
   box-shadow:0 4px 14px rgba(23,92,211,0.06);
 }

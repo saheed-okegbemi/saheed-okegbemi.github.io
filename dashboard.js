@@ -10,6 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
   var paused = false;
   var timer = null;
 
+  function sizeCards() {
+    var w = scroller.offsetWidth;
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].style.width = w + "px";
+    }
+    track.style.width = (w * cards.length) + "px";
+    return w;
+  }
+
   // Build dot indicators
   var dots = [];
   if (dotsWrap) {
@@ -34,8 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function render(animate) {
+    var cardWidth = sizeCards();
     track.style.transition = animate ? "transform 0.6s cubic-bezier(.4,0,.2,1)" : "none";
-    track.style.transform = "translateX(-" + scroller.offsetWidth * index + "px)";
+    track.style.transform = "translateX(-" + cardWidth * index + "px)";
     updateDots();
   }
 
@@ -64,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     timer = setInterval(advance, 3200);
   }
 
-  resetTimer();
   render(false);
+  resetTimer();
 
   scroller.addEventListener("mouseenter", function () { paused = true; });
   scroller.addEventListener("mouseleave", function () { paused = false; });
