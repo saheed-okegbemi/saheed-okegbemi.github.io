@@ -1,42 +1,74 @@
 document.addEventListener("DOMContentLoaded", function () {
   var scroller = document.querySelector(".dash-scroll");
   var track = document.querySelector(".dash-track");
+  var dotsWrap = document.querySelector(".dash-dots");
   if (!scroller || !track) return;
 
   var cards = track.children;
   var originalCount = cards.length / 2; // second half is a duplicate set for a seamless loop
   var index = 0;
   var paused = false;
-  var resetTimeout = null;
+  var timer = null;
 
-  function stepWidth() {
-    var style = getComputedStyle(track);
-    var gap = parseFloat(style.columnGap || style.gap || 20);
-    return cards[0].offsetWidth + gap;
+  // Build dot indicators
+  var dots = [];
+  if (dotsWrap) {
+    for (var i = 0; i < originalCount; i++) {
+      var dot = document.createElement("span");
+      dot.className = "dot" + (i === 0 ? " active" : "");
+      (function (targetIndex) {
+        dot.addEventListener("click", function () {
+          goTo(targetIndex);
+        });
+      })(i);
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    }
+  }
+
+  function updateDots() {
+    var activeIndex = index % originalCount;
+    dots.forEach(function (d, i) {
+      d.classList.toggle("active", i === activeIndex);
+    });
+  }
+
+  function render(animate) {
+    track.style.transition = animate ? "transform 0.6s cubic-bezier(.4,0,.2,1)" : "none";
+    track.style.transform = "translateX(-" + scroller.offsetWidth * index + "px)";
+    updateDots();
   }
 
   function advance() {
     if (paused) return;
     index++;
-    track.style.transition = "transform 0.7s cubic-bezier(.4,0,.2,1)";
-    track.style.transform = "translateX(-" + stepWidth() * index + "px)";
-
+    render(true);
     if (index === originalCount) {
-      resetTimeout = setTimeout(function () {
+      setTimeout(function () {
         track.style.transition = "none";
         track.style.transform = "translateX(0)";
         index = 0;
-      }, 720);
+        updateDots();
+      }, 620);
     }
   }
 
-  var timer = setInterval(advance, 3200);
+  function goTo(targetIndex) {
+    index = targetIndex;
+    render(true);
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(advance, 3200);
+  }
+
+  resetTimer();
+  render(false);
 
   scroller.addEventListener("mouseenter", function () { paused = true; });
   scroller.addEventListener("mouseleave", function () { paused = false; });
 
-  window.addEventListener("resize", function () {
-    track.style.transition = "none";
-    track.style.transform = "translateX(-" + stepWidth() * index + "px)";
-  });
+  window.addEventListener("resize", function () { render(false); });
 });
